@@ -387,7 +387,7 @@ impl Terra {
         memo: Option<String>,
     ) -> anyhow::Result<(StdSignMsg, Vec<StdSignature>)> {
         let account_number = auth_account.account_number;
-        let sequence = auth_account.sequence.unwrap_or(0);
+        let sequence = auth_account.sequence.unwrap_or(0) + 1;
         let messages_len = messages.len();
         let std_sign_msg = StdSignMsg {
             chain_id: chain_id.to_string(), //: String::from(self.chain_id),
